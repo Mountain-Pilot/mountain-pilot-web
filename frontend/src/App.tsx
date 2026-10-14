@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Home from "./Home/Home";
 import Products from "./Products/Products";
 import Orders from './Orders/Orders';
+import PaymentScreen from './Payment/Payment';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/catalog">Catalog</Link>
           <Link to="/orders">Orders</Link>
+          <Link to="/payment">Payment</Link>
         </header>
 
         <main>
@@ -18,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
+            <Route path="/payment" element={<PaymentScreen />} />
           </Routes>
         </main>
       </div>

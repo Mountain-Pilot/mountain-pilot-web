@@ -78,6 +78,10 @@ input {
   padding: 1rem;
   border: 0.1rem #c0c0c0 solid;
   border-radius: 0.5rem;
+}
+
+.unshipped {
+  color: #ff0000;
 html {
     font-size: 1rem;
     box-sizing: border-box;

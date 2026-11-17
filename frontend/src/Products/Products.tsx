@@ -44,7 +44,6 @@ useEffect(() => {
             </div>
           </li>
         ))}
-        ))}
       </ul>
     </div>
   );

@@ -82,7 +82,7 @@ input {
 
 .unshipped {
   color: #ff0000;
-html {
+html }
     font-size: 1rem;
     box-sizing: border-box;
 }

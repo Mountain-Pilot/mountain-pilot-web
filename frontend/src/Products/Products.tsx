@@ -1,28 +1,37 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  brand: string;
+  price: number;
+  rating: number;
+  numberOfReviews: number;
+  imageUrl: string;
+};
+
+const emptyProducts: Product[] = [];
 function Products() {
-  const catalog = {
-    products: [
-      {
-        name: "Shirt",
-        brand: "Nike",
-        price: 60,
-        rating: 4.5,
-        numReviews: 10,
+ const [products, setProducts]: [Product[], (products: Product[]) => void] =
+  useState(emptyProducts);
+
+useEffect(() => {
+  axios
+    .get<Product[]>("https://localhost:7064/catalog", {
+      headers: {
+        "Content-Type": "application/json",
       },
-      {
-        name: "Pants",
-        brand: "Adidas",
-        price: 80,
-        rating: 4.7,
-        numReviews: 15,
-      },
-    ],
-  };
+    })
+    .then((response) => setProducts(response.data))
+    .catch((error) => console.log(error));
+}, []);
 
   return (
     <div className="content">
       <ul className="products">
-        {catalog.products.map((product) => (
-          <li key={product.name}>
+       {products.map((product) => (
+          <li key={product.id}>
             <div className="product">
               <div className="product-name">
                 <a href="product.html">{product.name}</a>
@@ -30,7 +39,7 @@ function Products() {
               <div className="product-brand">{product.brand}</div>
               <div className="product-price">${product.price}</div>
               <div className="product-rating">
-                {product.rating} Stars ({product.numReviews} Reviews)
+                {product.rating} Stars ({product.numberOfReviews} Reviews)
               </div>
             </div>
           </li>

@@ -4,6 +4,8 @@ import Products from "./Products/Products";
 import Orders from './Orders/Orders';
 import PaymentScreen from './Payment/Payment';
 import Fulfillment from './Fulfillment/Fulfillment';
+import OrderDetail from './Orders/OrderDetail';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Products />} />
             <Route path="/orders" element={<Orders />} />
+<Route path="/order/:id" element={<OrderDetail />} />
             <Route path="/payment" element={<PaymentScreen />} />
             <Route path="/fulfillment" element={<Fulfillment />} />
           </Routes>
